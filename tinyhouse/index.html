@@ -3,8 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TinyHouses | Casas Modulares em Portugal | Soluções Sustentáveis</title>
-    <meta name="description" content="TinyHouses e casas modulares em Portugal. Construção sustentável desde €45.000. 20-30% mais barado que casa tradicional. Entrega em 3-6 meses.">
+    <title>TinyHouses Portugal | Casas Modulares Sustentáveis desde €45.000</title>
+    <meta name="description" content="TinyHouses e casas modulares em Portugal. Construção sustentável 20-30% mais econômica. Entrega em 3-6 meses. Conformidade com RJUE 2026.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="TinyHouses Portugal | Casas Modulares Sustentáveis">
+    <meta property="og:description" content="Casas modulares modernas e sustentáveis em Portugal. Construção rápida e econômica.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tinyhouse.jefi.com.br">
+    
+    <!-- Schema.org (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "TinyHouses Portugal",
+      "description": "Especialista em Tiny Houses e Casas Modulares sustentáveis em Portugal.",
+      "url": "https://tinyhouse.jefi.com.br",
+      "priceRange": "€45,000 - €199,000",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PT"
+      }
+    }
+    </script>
     <style>
         :root {
             --primary: #2E7D32;
@@ -17,6 +39,10 @@
             --text-light: #666;
             --white: #FFFFFF;
             --radius: 12px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: 0.3s ease;
+            --focus-color: #2E7D32;
+            --transition-fast: 0.15s ease;
         }
     </style>
     <link rel="stylesheet" href="style.css">
@@ -31,7 +57,14 @@
                 <h1>TinyHouses</h1>
                 <span class="tagline">Modulares & Sustentáveis</span>
             </div>
-            <nav class="nav">
+            <a href="#nav-mobile" class="menu-toggle" aria-label="Abrir menu" style="display: none; padding: 0.5rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width: 24px; height: 24px;">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </a>
+            <nav class="nav" id="nav-mobile">
                 <a href="#modelos">Modelos</a>
                 <a href="#beneficios">Benefícios</a>
                 <a href="#sustentabilidade">Sustentabilidade</a>
@@ -177,11 +210,11 @@
             <h2 class="section-title">Perguntas Frequentes</h2>
             <div class="faq-item">
                 <h4>✅ TinyHouses são legais em Portugal?</h4>
-                <p>Sim, segundo o art. 45 do Regime Jurídico da Habitabilidade.</p>
+                <p>Sim, desde 1º de Outubro de 2026, regulado pelo Decreto-Lei 108/2026 (RJUE). A construção modular é reconhecida e incentivada pela nova legislação.</p>
             </div>
             <div class="faq-item">
-                <h4>❌ Preciso de autorização municipal?</h4>
-                <p>Não para a maioria dos casos, desde que dentro dos limites legais.</p>
+                <h4>🏠 Onde posso construir?</h4>
+                <p>Em solos classificados como urbanizáveis. Em solo rústico, apenas em casos de atividade agrícola comprovada, sob consulta prévia da câmara municipal.</p>
             </div>
             <div class="faq-item">
                 <h4>⚠️ Pode ser adaptada?</h4>
@@ -209,7 +242,7 @@
                         <input type="email" name="email" placeholder="Email" required>
                         <input type="tel" name="phone" placeholder="Telefone" required>
                         <select name="model" required>
-                            <option value="">Qual modelo interessa?</option>
+                            <option value="" disabled selected>Qual modelo interessa?</option>
                             <option value="micro">Micro (12-15 m²)</option>
                             <option value="compacto">Compacto (20-25 m²)</option>
                             <option value="familiar">Familiar (35-45 m²)</option>
@@ -235,5 +268,17 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMobile = document.getElementById('nav-mobile');
+            if (menuToggle && navMobile) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navMobile.classList.toggle('active');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

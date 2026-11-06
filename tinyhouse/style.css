@@ -1,18 +1,19 @@
 /* TinyHouses Portugal - Estilos */
-
 :root {
-    --primary: #2E8B57;
-    --primary-dark: #228B22;
-    --secondary: #CC7722;
-    --accent: #DAA520;
-    --neutral-light: #F8F9FA;
-    --neutral-dark: #343A40;
+    --primary: #2E7D32;
+    --primary-dark: #1B5E20;
+    --secondary: #795548;
+    --accent: #D7CCC8;
+    --neutral-light: #F5F5F5;
+    --neutral-dark: #2D3748;
     --text: #333;
     --text-light: #666;
     --white: #FFFFFF;
-    --radius: 8px;
+    --radius: 12px;
     --shadow: 0 4px 6px rgba(0,0,0,0.1);
     --transition: 0.3s ease;
+    --transition-fast: 0.15s ease;
+    --focus-color: var(--primary);
 }
 
 /* Font Setup */
@@ -32,7 +33,7 @@ h1, h2, h3, h4 {
     margin-bottom: 1rem;
 }
 
-h1 { font-size: 2.5rem; }
+h1 { font-size: 2.75rem; }
 h2 { font-size: 2rem; }
 h3 { font-size: 1.5rem; }
 
@@ -115,6 +116,9 @@ h3 { font-size: 1.5rem; }
     font-size: 1.25rem;
     opacity: 0.95;
     margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-cta {
@@ -124,6 +128,7 @@ h3 { font-size: 1.5rem; }
     flex-wrap: wrap;
 }
 
+/* Buttons */
 .btn {
     padding: 0.75rem 2rem;
     border-radius: var(--radius);
@@ -288,7 +293,6 @@ h3 { font-size: 1.5rem; }
     box-shadow: var(--shadow);
 }
 
-/* Contact */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -311,6 +315,7 @@ h3 { font-size: 1.5rem; }
     font-weight: 500;
 }
 
+/* Contact Form */
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
@@ -326,33 +331,10 @@ h3 { font-size: 1.5rem; }
     width: 100%;
 }
 
-/* Footer */
-.footer {
-    background: var(--neutral-dark);
-    color: var(--white);
-    text-align: center;
-    padding: 2rem 0;
-}
-
-.footer-links {
-    margin-top: 1rem;
-}
-
-.footer-links a {
-    color: var(--white);
-    text-decoration: none;
-    margin: 0 1rem;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .hero-title { font-size: 2rem; }
     .hero-subtitle { font-size: 1rem; }
-    .hero-cta { flex-direction: column; }
     
     .container { padding: 0 1rem; }
     
@@ -365,8 +347,50 @@ h3 { font-size: 1.5rem; }
         grid-template-columns: 1fr;
     }
     
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+    
     .nav {
         display: none;
+    }
+    
+    .nav.active {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--white);
+        padding: 2rem;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1.5rem;
+        border-bottom: 1px solid var(--neutral-light);
+        width: 100%;
+        text-align: center;
+    }
+    
+    .whatsapp {
+        display: none;
+    }
+    
+    .nav.active .whatsapp {
+        display: block;
+        margin-top: 2rem;
     }
 }
 
