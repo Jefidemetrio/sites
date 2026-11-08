@@ -1,0 +1,111 @@
+{
+  "collections": [
+    {
+      "collection": "pages",
+      "meta": { "icon": "pages", "note": "Páginas do site (home, modelos, sobre...)" },
+      "fields": [
+        { "field": "id", "type": "uuid", "schema": { "is_primary_key": true }, "meta": { "hidden": true } },
+        { "field": "slug", "type": "string", "schema": { "unique": true }, "meta": { "interface": "input", "display": "formatted-value" } },
+        { "field": "title", "type": "string", "meta": { "interface": "input", "required": true } },
+        { "field": "status", "type": "string", "meta": { "interface": "select-dropdown", "choices": [{ "text": "Draft", "value": "draft" }, { "text": "Published", "value": "published" }] }, "schema": { "default_value": "draft" } },
+        { "field": "hero_image", "type": "uuid", "schema": { "foreign_key_table": "directus_files", "foreign_key_column": "id" }, "meta": { "interface": "file", "note": "Imagem de destaque" } },
+        { "field": "meta_title", "type": "string", "meta": { "interface": "input", "note": "SEO title" } },
+        { "field": "meta_description", "type": "text", "meta": { "interface": "input-multiline", "note": "SEO meta description (máx 160 chars)" } },
+        { "field": "content_blocks", "type": "json", "meta": { "interface": "input-code", "options": { "language": "json" }, "note": "Array ordenado de blocos: [{type, data}]" } },
+        { "field": "seo_og_image", "type": "uuid", "schema": { "foreign_key_table": "directus_files", "foreign_key_column": "id" }, "meta": { "interface": "file" } },
+        { "field": "sort", "type": "integer", "meta": { "interface": "slider", "hidden": true } },
+        { "field": "date_created", "type": "timestamp", "schema": { "default_value": "CURRENT_TIMESTAMP" }, "meta": { "interface": "datetime-created", "hidden": true } },
+        { "field": "date_updated", "type": "timestamp", "schema": { "on_update": true }, "meta": { "interface": "datetime-updated", "hidden": true } }
+      ]
+    },
+    {
+      "collection": "models",
+      "meta": { "icon": "holiday_village", "note": "Modelos de tiny houses" },
+      "fields": [
+        { "field": "id", "type": "uuid", "schema": { "is_primary_key": true }, "meta": { "hidden": true } },
+        { "field": "slug", "type": "string", "schema": { "unique": true }, "meta": { "interface": "input", "options": { "slug": true } } },
+        { "field": "status", "type": "string", "schema": { "default_value": "draft" }, "meta": { "interface": "select-dropdown", "choices": [{ "text": "Draft", "value": "draft" }, { "text": "Active", "value": "active" }] } },
+        { "field": "name", "type": "string", "meta": { "interface": "input", "required": true } },
+        { "field": "description", "type": "text", "meta": { "interface": "input-multiline" } },
+        { "field": "price_eur", "type": "decimal", "schema": { "precision": 10, "scale": 0 }, "meta": { "interface": "numeric", "note": "Preço base em EUR" } },
+        { "field": "area_sqm", "type": "integer", "meta": { "interface": "numeric", "display": "numeric", "display_options": { "suffix": " m²" } } },
+        { "field": "capacity", "type": "string", "meta": { "interface": "input", "note": "Ex: 2-4 pessoas" } },
+        { "field": "specs", "type": "json", "meta": { "interface": "input-code", "options": { "language": "json" }, "note": "dimensions, weight, energy_rating, bedrooms, bathrooms" } },
+        { "field": "features", "type": "json", "meta": { "interface": "tags", "note": "Lista de features" } },
+        { "field": "featured_image", "type": "uuid", "schema": { "foreign_key_table": "directus_files", "foreign_key_column": "id" }, "meta": { "interface": "file" } },
+        { "field": "images", "type": "json", "meta": { "interface": "files", "note": "Galeria de imagens (m2m directus_files)" } },
+        { "field": "is_featured", "type": "boolean", "schema": { "default_value": false }, "meta": { "interface": "boolean", "width": "half" } },
+        { "field": "sort", "type": "integer", "meta": { "interface": "slider", "hidden": true } },
+        { "field": "date_created", "type": "timestamp", "schema": { "default_value": "CURRENT_TIMESTAMP" }, "meta": { "hidden": true } },
+        { "field": "date_updated", "type": "timestamp", "schema": { "on_update": true }, "meta": { "hidden": true } }
+      ]
+    },
+    {
+      "collection": "faqs",
+      "meta": { "icon": "help", "note": "Perguntas frequentes" },
+      "fields": [
+        { "field": "id", "type": "uuid", "schema": { "is_primary_key": true }, "meta": { "hidden": true } },
+        { "field": "status", "type": "string", "schema": { "default_value": "published" }, "meta": { "interface": "select-dropdown", "choices": [{ "text": "Draft", "value": "draft" }, { "text": "Published", "value": "published" }] } },
+        { "field": "question", "type": "text", "meta": { "interface": "input-multiline", "required": true } },
+        { "field": "answer", "type": "text", "meta": { "interface": "wysiwyg-html" } },
+        { "field": "category", "type": "string", "meta": { "interface": "select-dropdown", "choices": [{ "text": "Legal", "value": "legal" }, { "text": "Técnica", "value": "tecnica" }, { "text": "Preços", "value": "precos" }, { "text": "Geral", "value": "geral" }] } },
+        { "field": "sort", "type": "integer", "meta": { "interface": "slider" } }
+      ]
+    },
+    {
+      "collection": "testimonials",
+      "meta": { "icon": "chat", "note": "Depoimentos de clientes" },
+      "fields": [
+        { "field": "id", "type": "uuid", "schema": { "is_primary_key": true }, "meta": { "hidden": true } },
+        { "field": "status", "type": "string", "schema": { "default_value": "draft" }, "meta": { "interface": "select-dropdown", "choices": [{ "text": "Pending", "value": "pending" }, { "text": "Approved", "value": "approved" }, { "text": "Rejected", "value": "rejected" }] } },
+        { "field": "author_name", "type": "string", "meta": { "interface": "input", "required": true } },
+        { "field": "author_location", "type": "string", "meta": { "interface": "input", "note": "Cidade, Portugal" } },
+        { "field": "model_name", "type": "string", "meta": { "interface": "input", "note": "Modelo adquirido" } },
+        { "field": "content", "type": "text", "meta": { "interface": "input-multiline", "required": true } },
+        { "field": "rating", "type": "integer", "schema": { "precision": 10, "scale": 0 }, "meta": { "interface": "rating", "display": "stars" } },
+        { "field": "photo", "type": "uuid", "schema": { "foreign_key_table": "directus_files", "foreign_key_column": "id" }, "meta": { "interface": "file" } },
+        { "field": "date_created", "type": "timestamp", "schema": { "default_value": "CURRENT_TIMESTAMP" }, "meta": { "hidden": true } }
+      ]
+    },
+    {
+      "collection": "site_settings",
+      "meta": { "icon": "settings", "note": "Configurações globais do site (singleton)", "singleton": true },
+      "fields": [
+        { "field": "id", "type": "integer", "schema": { "is_primary_key": true }, "meta": { "hidden": true } },
+        { "field": "site_name", "type": "string", "meta": { "interface": "input" } },
+        { "field": "tagline", "type": "string", "meta": { "interface": "input" } },
+        { "field": "favicon", "type": "uuid", "schema": { "foreign_key_table": "directus_files", "foreign_key_column": "id" }, "meta": { "interface": "file" } },
+        { "field": "logo", "type": "uuid", "schema": { "foreign_key_table": "directus_files", "foreign_key_column": "id" }, "meta": { "interface": "file" } },
+        { "field": "primary_color", "type": "string", "meta": { "interface": "select-color", "options": { "presets": ["#2E7D32", "#795548", "#F5F5F5"] } } },
+        { "field": "secondary_color", "type": "string", "meta": { "interface": "select-color" } },
+        { "field": "contact_email", "type": "string", "meta": { "interface": "input", "options": { "iconRight": "mail" } } },
+        { "field": "whatsapp_number", "type": "string", "meta": { "interface": "input", "note": "Formato E.164: +351XXXXXXXXX" } },
+        { "field": "social_links", "type": "json", "meta": { "interface": "repeater", "note": "[{platform, url}]" } },
+        { "field": "seo_defaults", "type": "json", "meta": { "interface": "input-code", "options": { "language": "json" }, "note": "Meta padrão quando página não define" } }
+      ]
+    }
+  ],
+  "permissions": {
+    "editor_role": {
+      "name": "Editor",
+      "collections": {
+        "pages": { "read": "all", "create": "own", "update": "own", "delete": "own" },
+        "models": { "read": "all", "create": "own", "update": "own", "delete": "own" },
+        "faqs": { "read": "all", "create": "own", "update": "own", "delete": "own" },
+        "testimonials": { "read": "own+approved", "create": "own", "update": "own", "delete": "own" },
+        "site_settings": { "read": "all", "update": "all" },
+        "directus_files": { "read": "all", "create": "all", "update": "all" }
+      }
+    },
+    "public_api": {
+      "note": "Public role — somente dados publicados para o site",
+      "collections": {
+        "pages": { "read": { "filter": { "status": { "_eq": "published" } } } },
+        "models": { "read": { "filter": { "status": { "_eq": "active" } } } },
+        "faqs": { "read": { "filter": { "status": { "_eq": "published" } } } },
+        "testimonials": { "read": { "filter": { "status": { "_eq": "approved" } } } },
+        "site_settings": { "read": "all" }
+      }
+    }
+  }
+}

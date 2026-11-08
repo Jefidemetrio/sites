@@ -1,0 +1,51 @@
+name: Build & Deploy
+
+# Deploy via GitHub CI (substitui Dokploy).
+# Fluxo: Editor publica no Directus → CI busca conteúdo → build estático → GitHub Pages.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/**"
+      - "scripts/**"
+      - ".github/workflows/deploy.yml"
+  schedule:
+    - cron: "0 6 * * *"   # Repuxa conteúdo do Directus diariamente (Editor publica sem commit)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Fetch content from Directus
+        env:
+          DIRECTUS_URL: ${{ secrets.DIRECTUS_URL }}
+          DIRECTUS_READ_TOKEN: ${{ secrets.DIRECTUS_READ_TOKEN }}
+        run: |
+          node scripts/fetch-directus.js
+          # Snapshot dos dados p/ fallback local (commit opcional)
+          mkdir -p public/data
+          ls public/data/
+      - name: Build static site
+        run: node scripts/build.js
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/
+      - id: deployment
+        uses: actions/deploy-pages@v4

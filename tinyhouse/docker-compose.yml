@@ -1,0 +1,9 @@
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tinyhouse-teste:latest
+    expose:
+      - "80"
+    restart: unless-stopped

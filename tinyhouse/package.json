@@ -1,0 +1,20 @@
+{
+  "name": "tinyhouse-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "TinyHouses Portugal — site estático com conteúdo via Directus CMS",
+  "scripts": {
+    "fetch:content": "node scripts/fetch-directus.js",
+    "build": "npm run fetch:content && node scripts/build.js",
+    "preview": "npx serve dist",
+    "deploy": "npm run build && npx gh-pages -d dist"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "serve": "^14.2.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

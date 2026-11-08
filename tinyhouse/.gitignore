@@ -1,0 +1,17 @@
+# Dependências
+node_modules/
+
+# Build
+dist/
+
+# Segredos — NUNCA commitar tokens Directus
+.env
+.env.local
+
+# Conteúdo extraído do Directus (gerado no CI; mantido só o fallback snapshot)
+public/data/*
+!public/data/fallback.json
+
+# Sistema
+.DS_Store
+*.log
