@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dinamicos.jefi.com.br/sitemap.xml
+
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 1

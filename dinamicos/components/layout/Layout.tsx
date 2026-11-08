@@ -3,8 +3,8 @@
  * Estrutura principal com header, main, footer
  */
 
-import { Navigation } from './Navigation';
-import { Footer } from './Footer';
+import { Navigation } from '../Navigation';
+import { Footer } from '../Footer';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
