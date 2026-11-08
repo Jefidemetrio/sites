@@ -1,0 +1,45 @@
+/* Design Tokens - Paleta de Cores Multi-Empresa PME Portuguesa */
+:root {
+  /* Cores Primárias por Empresa (para diferenciação) */
+  --primary-corp-1: #1E40AF;    /* Azul profundo - confiança, corporativo */
+  --primary-corp-2: #0F766E;    /* Verde-azulado - sustentabilidade, crescimento */
+  --primary-corp-3: #924483;    /* Roxo profundo - criatividade, premium */
+  --primary-corp-4: #C2410C;    /* Laranja-escuro - energia, ação */
+  --primary-corp-5: #7E22CE;    /* Roxo vibrante - inovação, tecnologia */
+
+  /* Cores de Acento (para CTAs e destaques) */
+  --accent-1: #F59E0B;          /* Âmbar - energia, ação */
+  --accent-2: #10B981;          /* Esmeralda - sucesso, confirmação */
+  --accent-3: #34D399;          /* Verde claro - crescimento */
+  --accent-4: #60A5FA;          /* Azul claro - confiança clara */
+  --accent-5: #A855F7;          /* Violeta - criatividade */
+
+  /* Neutros - Base do design */
+  --white: #FFFFFF;
+  --off-white: #F8FAFC;
+  --gray-light: #F1F5F9;
+  --gray-medium: #E2E8F0;
+  --gray-dark: #64748B;
+  --gray-700: #475569;
+  --gray-800: #334155;
+  --gray-900: #0F172A;
+  --black: #000000;
+
+  /* Funções por empresa (cores de destaque específicas) */
+  --primary: var(--primary-corp-1);
+  --accent: var(--accent-1);
+
+  /* Cores de interface */
+  --background: var(--white);
+  --surface: var(--off-white);
+  --border: var(--gray-light);
+  --text-primary: var(--gray-900);
+  --text-secondary: var(--gray-600);
+  --text-inverse: var(--white);
+
+  /* Status colors */
+  --success: var(--accent-2);
+  --warning: var(--accent-1);
+  --error: #DC2626;
+  --info: var(--accent-4);
+}

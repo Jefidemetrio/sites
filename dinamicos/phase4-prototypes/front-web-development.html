@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="company-1">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Desenvolvimento Web profissional para PMEs portuguesas. Soluções personalizadas, código limpo e resultados mensuráveis.">
+  <title>Web Development - Dinâmicos Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Paleta Corporativa - Web Development (Empresa 1) */
+      --primary-corp: #1E40AF;
+      --primary: #1E40AF;
+      --accent: #F59E0B;
+      
+      /* Neutros */
+      --white: #FFFFFF;
+      --off-white: #F8FAFC;
+      --gray-100: #F3F4F6;
+      --gray-200: #E5E7EB;
+      --gray-300: #D1D5DB;
+      --gray-500: #6B7280;
+      --gray-600: #475569;
+      --gray-900: #0F172A;
+      
+      /* Tipografia */
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      
+      /* Espaçamento */
+      --radius-md: 0.375rem; --radius-lg: 0.5rem;
+      --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.5rem; --space-6: 2rem; --space-7: 2.5rem; --space-8: 3rem;
+    }
+    
+    * { box-sizing: border-box; }
+    html { font-size: 100%; scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--font-family); font-weight: 400; font-size: 1rem; line-height: 1.5; color: var(--gray-900); background: var(--white); }
+    img, picture { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; }
+    
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+    
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.65rem 1.4rem; font-size: 1rem; font-weight: 600; border-radius: var(--radius-md); transition: all 150ms ease; }
+    .btn-primary { background: var(--primary); color: var(--white); }
+    .btn-primary:hover { background: color-mix(in srgb var(--primary) 90%, black); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn-accent { background: var(--accent); color: var(--gray-900); }
+    .btn-accent:hover { background: color-mix(in srgb var(--accent) 90%, black); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn-secondary { background: var(--white); color: var(--gray-900); border: 1px solid var(--gray-200); }
+    .btn-secondary:hover { background: var(--off-white); border-color: var(--primary); color: var(--primary); }
+    
+    .card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--gray-200); box-shadow: var(--shadow-md); transition: all 250ms ease; overflow: hidden; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+    
+    h1 { font-size: 2.5rem; font-weight: 800; line-height: 1.15; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.875rem; font-weight: 600; line-height: 1.3; margin-bottom: 1rem; }
+    h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .eyebrow { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .lead { font-size: 1.125rem; color: var(--gray-600); }
+    
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 0; }
+    .nav__logo { font-size: 1.5rem; font-weight: 800; color: var(--gray-900); }
+    .nav__link { color: var(--gray-600); font-weight: 500; transition: color 0.2s; }
+    .nav__link:hover { color: var(--primary); }
+    .nav__cta { background: var(--accent); color: var(--gray-900); font-weight: 600; padding: 0.5rem 1.25rem; border-radius: var(--radius-md); }
+    
+    .hero { position: relative; background: linear-gradient(135deg, #0F172A 0%, #1E40AF 50%, #1E40AF 100%); color: var(--white); padding: 5rem 0 4rem; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Cpath fill="%23ffffff" fill-opacity="0.05" d="M0 0l400 150L0 300z"/3E%3C/svg%3E') repeat-x; }
+    .hero__content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; text-align: center; }
+    
+    .section { padding: 4rem 0; }
+    .section--alt { background: var(--off-white); }
+    
+    .services-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    
+    .service-card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--gray-200); box-shadow: 0 2px 4px rgba(0,0,0,0.05); overflow: hidden; }
+    .service-card__icon { background: var(--primary); color: var(--white); width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 1.5rem; }
+    .service-card__content { padding: 1.5rem; }
+    
+    .case-studies-grid { display: grid; gap: 2rem; }
+    @media (min-width: 768px) { .case-studies-grid { grid-template-columns: repeat(2, 1fr); } }
+    
+    .case-card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--gray-200); box-shadow: var(--shadow-md); overflow: hidden; }
+    .case-card__image { height: 200px; background: linear-gradient(45deg, var(--primary), var(--accent)); }
+    .case-card__content { padding: 1.5rem; }
+    
+    .footer { background: var(--gray-900); color: var(--white); padding: 3rem 0 1.5rem; font-size: 0.875rem; }
+    .footer__nav { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 2rem; }
+    .footer__link { color: var(--gray-400); font-weight: 500; transition: color 0.2s; }
+    .footer__link:hover { color: var(--white); }
+    .footer__bottom { text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--gray-800); color: var(--gray-500); }
+    
+    .breadcrumb { font-size: 0.875rem; color: var(--gray-500); margin-bottom: 1rem; }
+    .breadcrumb a { color: var(--primary); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { color: var(--gray-500); }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <nav class="container nav">
+      <a href="/" class="nav__logo" aria-label="Página inicial">Dinâmicos</a>
+      <div class="nav__links">
+        <a href="/">Início</a>
+        <a href="/web-development">Web Development</a>
+        <a href="/company-administration">Administração</a>
+        <a href="/advertising">Publicidade</a>
+        <a href="/modular-construction">Construção</a>
+        <a href="/contactos">Contactos</a>
+      </div>
+      <a href="/contactos" class="nav__cta">Contactar</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero__content">
+      <div class="eyebrow mb-3">Web Development</div>
+      <h1 class="h1 mb-4">Soluções web inovadoras para a sua empresa</h1>
+      <p class="lead mb-6">Desenvolvemos aplicações web modernas, seguras e performáticas que resolvem os desafios reais do seu negócio.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap">
+        <a href="/contactos" class="btn btn-white">Falar com um especialista</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="h2 text-center mb-6">Os nossos serviços</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-card__icon">⚙️</div>
+          <div class="service-card__content">
+            <h3>Aplicações Web Personalizadas</h3>
+            <p style="color: var(--gray-600); margin-bottom: 1rem;">Desenvolvemos aplicações sob medida que automatizam os seus processos e melhoram a eficiência operacional.</p>
+            <a href="/web-development/aplicacoes-web" class="btn btn-primary">Saiba mais</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon">☁️</div>
+          <div class="service-card__content">
+            <h3>Infraestrutura em Nuvem</h3>
+            <p style="color: var(--gray-600); margin-bottom: 1rem;">Implantação segura de soluções em nuvem com monitorização 24/7 e escalabilidade automática.</p>
+            <a href="/web-development/nubem" class="btn btn-primary">Saiba mais</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon">🛡️</div>
+          <div class="service-card__content">
+            <h3>Segurança Cibernética</h3>
+            <p style="color: var(--gray-600); margin-bottom: 1rem;">Auditorias de segurança, correções de vulnerabilidades e implementação de políticas de proteção.</p>
+            <a href="/web-development/seguranca" class="btn btn-primary">Saiba mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="h2 text-center mb-6">Casos de sucesso recentes</h2>
+      <div class="case-studies-grid">
+        <div class="case-card">
+          <div class="case-card__image"></div>
+          <div class="case-card__content">
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span style="background: var(--primary); color: var(--white); padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.75rem;">✅ Concluído</span>
+            </div>
+            <h3>Aumento de 40% nas vendas online</h3>
+            <p style="color: var(--gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">Loja ABC - E-commerce redesign</p>
+            <p style="color: var(--gray-600); font-size: 0.875rem; margin-bottom: 1rem;">Reanálise de conversão de 12% para 38% com redesign focado em UX.</p>
+            <a href="/web-development/casos/loja-abc" class="btn btn-accent">Ver caso completo</a>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-card__image" style="background: linear-gradient(45deg, #0F766E, #10B981);"></div>
+          <div class="case-card__content">
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span style="background: var(--primary); color: var(--white); padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.75rem;">✅ Concluído</span>
+            </div>
+            <h3>Automação de processos internos</h3>
+            <p style="color: var(--gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">Empresa XYZ - Sistema interno</p>
+            <p style="color: var(--gray-600); font-size: 0.875rem; margin-bottom: 1rem;">Redução de 60% no tempo de processamento com automação de workflows.</p>
+            <a href="/web-development/casos/automacao-xyz" class="btn btn-accent">Ver caso completo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem;">
+        <div style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem;">Dinâmicos</div>
+        <div style="display: flex; gap: 2rem; font-size: 0.875rem;">
+          <span style="color: var(--gray-500);">© 2024</span>
+          <span style="color: var(--gray-500);">Todos os direitos reservados</span>
+        </div>
+      </div>
+      <nav class="footer__nav" aria-label="Navegação do rodapé">
+        <a href="/" class="footer__link">Início</a>
+        <a href="/web-development" class="footer__link">Web Development</a>
+        <a href="/contactos" class="footer__link">Contactos</a>
+        <a href="/about" class="footer__link">Sobre</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

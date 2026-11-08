@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="https://www.w3.org/1999/xhtml"
+        xmlns:geo="https://www.google.com/schemas/sitemap/geo/1.0"
+        xmlns:news="https://www.google.com/schemas/sitemap/news/1.0">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.dinamicos.pt/</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/"/>
+  </url>
+
+  <!-- Web Development (B2B) -->
+  <url>
+    <loc>https://www.dinamicos.pt/web-development</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/web-development"/>
+  </url>
+
+  <!-- Web Development Subpages -->
+  <url>
+    <loc>https://www.dinamicos.pt/web-development/aplicacoes-web</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/web-development/aplicacoes-web"/>
+  </url>
+
+  <url>
+    <loc>https://www.dinamicos.pt/web-development/nubem</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/web-development/nubem"/>
+  </url>
+
+  <url>
+    <loc>https://www.dinamicos.pt/web-development/seguranca</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/web-development/seguranca"/>
+  </url>
+
+  <!-- Company Administration (B2B) -->
+  <url>
+    <loc>https://www.dinamicos.pt/company-administration</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/company-administration"/>
+  </url>
+
+  <!-- Company Administration Subpages -->
+  <url>
+    <loc>https://www.dinamicos.pt/company-administration/contabilidade</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/company-administration/contabilidade"/>
+  </url>
+
+  <url>
+    <loc>https://www.dinamicos.pt/company-administration/financiamento</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/company-administration/financiamento"/>
+  </url>
+
+  <url>
+    <loc>https://www.dinamicos.pt/company-administration/planamento</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/company-administration/planamento"/>
+  </url>
+
+  <!-- Advertising (B2C) -->
+  <url>
+    <loc>https://www.dinamicos.pt/advertising</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/advertising"/>
+  </url>
+
+  <!-- Advertising Subpages -->
+  <url>
+    <loc>https://www.dinamicos.pt/advertising/identidade-marca</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/advertising/identidade-marca"/>
+  </url>
+
+  <url>
+    <loc>https://www.dinamicos.pt/advertising/campanhas-digitais</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/advertising/campanhas-digitais"/>
+  </url>
+
+  <!-- Modular Construction -->
+  <url>
+    <loc>https://www.dinamicos.pt/modular-construction</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/modular-construction"/>
+  </url>
+
+  <!-- Contactos -->
+  <url>
+    <loc>https://www.dinamicos.pt/contactos</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/contactos"/>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://www.dinamicos.pt/sobre</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.dinamicos.pt/sobre"/>
+  </url>
+
+</urlset>
