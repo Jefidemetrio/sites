@@ -5,7 +5,6 @@
  * Raio padrão: 0.375rem
  */
 
-import '../design-system/typography.css';
 
 export const CTAButton: React.FC<{ variant: 'primary' | 'secondary' | 'accent'; size: 'sm' | 'md' | 'lg'; children: React.ReactNode; onClick?: () => void }> = ({ variant, size, children, onClick }) => {
   const variantClasses = {

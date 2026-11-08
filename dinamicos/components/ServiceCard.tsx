@@ -4,7 +4,6 @@
  * Raio padrão: 0.375rem
  */
 
-import '../design-system/typography.css';
 
 export const ServiceCard: React.FC<{ id: string; title: string; description: string; href: string }> = ({ id, title, description, href }) => {
   return (

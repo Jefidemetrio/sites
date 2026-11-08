@@ -5,7 +5,6 @@
  * Raio padrão: 0.375rem
  */
 
-import '../design-system/typography.css';
 
 export const ProcessSteps: React.FC = () => {
   const steps = [

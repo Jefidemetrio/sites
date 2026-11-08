@@ -4,7 +4,6 @@
   * Breakpoint: mobile-first, >768px 2-colunas
   */
 
- import '../design-system/typography.css';
 
  export const HeroSection: React.FC = () => {
    return (
