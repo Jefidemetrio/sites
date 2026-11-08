@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  # Site Dinâmicos
+  dinamicos:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dinamicos-site
+    restart: unless-stopped
+    
+    # Ports
+    ports:
+      - "3000:3000"
+    
+    # Environment variables
+    environment:
+      - NODE_ENV=production
+      - DIRECTUS_URL=${DIRECTUS_URL:-http://directus:8055}
+      - DIRECTUS_TOKEN=${DIRECTUS_TOKEN:-}
+    
+    # Volumes
+    volumes:
+      - ./public:/app/public
+      - ./dist:/app/dist
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # Deploy resources
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+
+  # Directus CMS (Optional - uncomment if running locally)
+  # directus:
+  #   image: directus/directus:latest
+  #   container_name: dinamicos-directus
+  #   restart: unless-stopped
+  #   ports:
+  #     - "8055:8055"
+  #   environment:
+  #     - DIRECTUS_DATABASE_CLIENT=sqlite
+  #     - DIRECTUS_DATABASE_CLIENT_DEBUG=false
+  #   volumes:
+  #     - directus-data:/directus
+  #   healthcheck:
+  #     test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost:8055/health"]
+  #     interval: 30s
+  #     timeout: 10s
+  #     retries: 3
+
+# Volumes
+volumes:
+  directus-data:

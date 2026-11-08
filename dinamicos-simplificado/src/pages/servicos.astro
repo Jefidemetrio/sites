@@ -1,0 +1,68 @@
+---
+// Serviços - Dinâmicos
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+---
+
+<Layout 
+  title="Serviços de Presença Digital" 
+  description="Site institucional, SEO avançado e captação de leads para PMEs tecnológicas."
+>
+  <section class="section">
+    <div class="container">
+      <h1 class="section-title text-center mb-12">Os nossos serviços</h1>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card">
+          <div class="icon w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M9 8h6"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Site Institucional</h3>
+          <p class="text-medium mb-4">Criação de sites modernos, otimizados para conversão e SEO.</p>
+          <a href="/servicos/criacao-de-sites" class="text-primary hover:underline font-medium">Saiba mais →</a>
+        </div>
+        <div class="card">
+          <div class="icon w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">SEO Avançado</h3>
+          <p class="text-medium mb-4">Posicionamento orgânico com foco em agentes de IA e descoberta.</p>
+          <a href="/servicos/optimizacao-seo" class="text-primary hover:underline font-medium">Saiba mais →</a>
+        </div>
+        <div class="card">
+          <div class="icon w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.082c-.884-.548-1.984-.344-2.414.54-.54 1.18-.344 2.414.54 2.414H11v-4zm0 4v4h-1c-1.414 0-2.571-1.157-2.571-2.571V11H5.586c-1.327 0-2.414 1.086-2.414 2.414v.172C3.172 15.894 4.259 17 5.586 17h.017c.884.548 1.984.344 2.414-.54.54-1.18.344-2.414-.54-2.414H11z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Captação de Leads</h3>
+          <p class="text-medium mb-4">Formulários inteligentes e estratégias de conversão.</p>
+          <a href="/servicos/captacao-de-leads" class="text-primary hover:underline font-medium">Saiba mais →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+.card {
+  background: white;
+  border: 1px solid #E5E5EA;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+</style>

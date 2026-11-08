@@ -1,0 +1,117 @@
+---
+// Contato - Dinâmicos
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+---
+
+<Layout 
+  title="Contacte a Dinâmicos" 
+  description="Entre em contato para uma conversa gratuita sobre a sua presença digital."
+>
+  <section class="section text-center">
+    <div class="container">
+      <h1 class="section-title">Vamos conversar?</h1>
+      <p class="text-lg text-medium max-w-2xl mx-auto mb-12">
+        Agende uma conversa gratuita para entender suas necessidades e propor uma solução personalizada.
+      </p>
+      
+      <div class="max-w-lg mx-auto">
+        <form 
+          action="https://api.formsubmit.co/youremail@example.com" 
+          method="POST"
+          class="space-y-6 text-left"
+        >
+          <div>
+            <input 
+              type="text" 
+              name="name" 
+              placeholder="Nome completo" 
+              required
+              class="input w-full"
+            />
+          </div>
+          
+          <div>
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Email profissional" 
+              required
+              class="input w-full"
+            />
+          </div>
+          
+          <div>
+            <input 
+              type="text" 
+              name="company" 
+              placeholder="Nome da empresa" 
+              class="input w-full"
+            />
+          </div>
+          
+          <div>
+            <textarea 
+              name="message" 
+              placeholder="Como podemos ajudar?" 
+              rows="5"
+              required
+              class="input w-full resize-none"
+            ></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary w-full">
+            Enviar mensagem
+          </button>
+        </form>
+      </div>
+      
+      <div class="divider my-12">
+        <span class="px-4 text-medium">ou entre em contato diretamente</span>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div>
+          <div class="text-2xl text-primary mb-2">📧</div>
+          <p>info@dinamicos.pt</p>
+        </div>
+        <div>
+          <div class="text-2xl text-primary mb-2">📱</div>
+          <p>+351 900 000 000</p>
+        </div>
+        <div>
+          <div class="text-2xl text-primary mb-2">🕐</div>
+          <p>Horas: 9h - 18h, Díasúpeis</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+.divider {
+  position: relative;
+  text-align: center;
+  color: #636366;
+  font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  height: 1px;
+  background-color: #E5E5EA;
+}
+
+.Divider::before {
+  left: 0;
+}
+
+.Divider::after {
+  right: 0;
+}
+</style>

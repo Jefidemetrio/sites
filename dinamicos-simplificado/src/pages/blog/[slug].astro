@@ -1,0 +1,72 @@
+---
+// Blog Post - Dinâmicos
+import Layout from '../../layouts/Layout.astro';
+import { getAllBlogPosts } from '../../lib/blog';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  const posts = getAllBlogPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout 
+  title={`${post.title} | Blog Dinâmicos`} 
+  description={post.description}
+>
+  <article class="section">
+    <div class="container max-w-3xl mx-auto">
+      <nav class="text-sm text-medium mb-4">
+        <a href="/">Início</a> → 
+        <a href="/blog">Blog</a> → 
+        <span class="text-dark">{post.title}</span>
+      </nav>
+
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-dark">{post.title}</h1>
+      
+      <div class="text-medium mb-8">
+        <time datetime={post.published.toISOString()}>
+          {post.published.toLocaleDateString('pt-PT')}
+        </time>
+        <span class="mx-2">•</span>
+        <span>{post.readingTime || '5 min'} de leitura</span>
+      </div>
+
+      {post.image && (
+        <img 
+          src={post.image} 
+          alt={post.title}
+          class="w-full h-64 object-cover rounded-xl mb-8"
+        />
+      )}
+
+      <div class="prose max-w-none" set:html={post.contentHtml} />
+
+      <!-- CTA -->
+      <section class="mt-16 text-center">
+        <div class="bg-light p-8 rounded-xl">
+          <h3 class="text-2xl font-bold mb-4">Pronto para transformar a sua presença digital?</h3>
+          <a href="/contato" class="btn btn-primary">
+            Agendar conversa gratuita
+          </a>
+        </div>
+      </section>
+    </div>
+  </article>
+</Layout>
+
+<style is:global>
+.prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+.prose h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+.prose p { margin-bottom: 1rem; }
+.prose ul { list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
+.prose a { color: var(--color-primary); text-decoration: underline; }
+.prose details { margin-bottom: 1rem; }
+.prose summary { cursor: pointer; font-weight: 500; border-bottom: 1px solid #E5E5EA; padding: 0.5rem 0; }
+</style>
