@@ -1,5 +1,4 @@
-// Configuração Astro + Tailwind + Content Collections
-
+// Configuração Astro + Tailwind
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
