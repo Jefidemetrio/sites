@@ -62,7 +62,7 @@ services:
       directus:
         condition: service_healthy
     environment:
-      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://dinamicos.pt}
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://dinamicos.jefi.com.br}
       NEXT_PUBLIC_DIRECTUS_URL: ${NEXT_PUBLIC_DIRECTUS_URL:-http://directus:8055}
       DIRECTUS_TOKEN: ${DIRECTUS_TOKEN:-}
       NODE_ENV: production
