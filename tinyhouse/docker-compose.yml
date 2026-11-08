@@ -1,8 +1,9 @@
 services:
   nginx:
-    image: nginx:alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tinyhouse-teste:latest
     expose:
       - "80"
-    volumes:
-      - ./:/usr/share/nginx/html:ro
     restart: unless-stopped
