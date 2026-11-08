@@ -51,12 +51,16 @@
 - ✅ Integração Directus CMS validada
 
 ### Fase 6: Development
-- 🔄 **INICIADA**
+- ✅ CONCLUÍDA
 - Stack: Next.js 14+ (App Router) + React Server Components
 - Styling: Tailwind CSS + design tokens customizados
 - CMS: Directus 10.x (headless, REST/GraphQL API)
 - Backend: Docker + Docker Compose
 - Deployment: Dokploy (auto-hosting)
+- next.config.mjs corrigido com export default
+- Importos CSS globalizados via _app.tsx
+- tsconfig.json criado para Next.js
+- Build otimizado para Dokploy deploy
 
 ---
 
