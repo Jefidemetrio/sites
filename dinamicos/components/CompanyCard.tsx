@@ -5,7 +5,7 @@
  * Cores variáveis por empresa: --primary-corp-1 a --primary-corp-4
  */
 
-import '../assets/css/typography.css';
+import '../design-system/typography.css';
 
 export const CompanyCard: React.FC<{ id: string; name: string; segment: string; color: string }> = ({ id, name, segment, color }) => {
   return (

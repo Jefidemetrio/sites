@@ -4,7 +4,7 @@
  * Raio padrão: 0.375rem
  */
 
-import '../assets/css/typography.css';
+import '../design-system/typography.css';
 
 export const Navigation: React.FC = () => {
   return (

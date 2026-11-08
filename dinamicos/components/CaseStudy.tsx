@@ -5,7 +5,7 @@
  * Raio padrão: 0.375rem
  */
 
-import '../assets/css/typography.css';
+import '../design-system/typography.css';
 
 export const CaseStudy: React.FC<{ id: string; title: string; client: string; category: string; beforeMetrics: string; afterMetrics: string; href: string }> = ({
   id, title, client, category, beforeMetrics, afterMetrics, href,

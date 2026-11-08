@@ -64,13 +64,24 @@ export default function Home() {
           <h2>Casos de Sucesso</h2>
           <div className="cases-grid">
             {cases.map((caso, idx) => (
-              <CaseStudy key={idx} {...caso} />
+              <CaseStudy
+                key={idx}
+                id={caso.title}
+                title={caso.title}
+                client={caso.client}
+                category="Web Development"
+                beforeMetrics={caso.before}
+                afterMetrics={caso.after}
+                href="#"
+              />
             ))}
           </div>
         </section>
       </main>
       <footer>
-        <CTAButton text="Falar com um Especialista" />
+        <CTAButton variant="primary" size="md">
+          Falar com um Especialista
+        </CTAButton>
       </footer>
     </>
   );

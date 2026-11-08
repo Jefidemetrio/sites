@@ -45,9 +45,18 @@ export default function Cases() {
       </header>
 
       <section className="cases-grid">
-        {cases.map((caso, idx) => (
-          <CaseStudy key={idx} {...caso} />
-        ))}
+              {cases.map((caso, idx) => (
+                <CaseStudy
+                  key={idx}
+                  id={caso.title}
+                  title={caso.title}
+                  client={caso.client}
+                  category="Web Development"
+                  beforeMetrics={caso.before}
+                  afterMetrics={caso.after}
+                  href="#"
+                />
+              ))}
       </section>
 
       <section className="results-summary">
