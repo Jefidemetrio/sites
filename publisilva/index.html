@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publisilva | Comunicação Visual Premium</title>
+    <meta name="description" content="Publisilva - Especialistas em comunicação visual e sinalização. Reclamos luminosos, montras, viaturas e mais.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <script defer src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #0a192f;
+            --secondary: #172a45;
+            --accent: #00d9ff;
+            --accent-dark: #00a3a3;
+            --light: #ffffff;
+            --gray-light: #f8f9fa;
+            --gray-dark: #6c757d;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--light);
+            background: linear-gradient(135deg, #0a192f 0%, #172a45 100%);
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            background: linear-gradient(135deg, #0a192f 0%, #172a45 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 30%, rgba(0, 163, 163, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.8rem, 10vw, 5rem);
+            font-weight: 800;
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            color: var(--gray-light);
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 3.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            color: var(--primary);
+            background: var(--accent);
+            border-radius: 0;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+        }
+
+        .section.loaded { opacity: 1; }
+
+        .section:nth-child(even) { background: rgba(255, 255, 255, 0.02); }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 800;
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--gray-dark);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .service-card.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 217, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .service-card p {
+            color: var(--gray-light);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* CONTACT */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.2rem;
+            color: var(--gray-light);
+        }
+
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent);
+        }
+
+        .contact-email {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            text-align: center;
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 4rem 1.5rem; }
+            .service-card { padding: 2rem; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Comunicação <span class="highlight">Visual</span></h1>
+                <p>Transforme o seu negócio com soluções de comunicação visual premium. Desde ideias até a execução final.</p>
+                <a href="#services" class="btn">Ver Serviços</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Os Nossos Serviços</h2>
+                <p>Soluções de comunicação visual que dão vida às suas ideias</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>💡 <span>Reclamos Luminosos</span></h3>
+                    <p>Criação de reclamos luminosos personalizados que atraem e destacam a sua marca, dia e noite.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🖼️ <span>Decoração de Montras</span></h3>
+                    <p>Transformamos montras em verdadeiras obras de arte com vinil de alta qualidade e design premium.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🚗 <span>Decoração de Viaturas</span></h3>
+                    <p>Publicidade móvel de alta qualidade. Leaisos, wraps e decoração que anda por si.</p>
+                </div>
+                <div class="service-card">
+                    <h3>✂️ <span>CNC & Laser</span></h3>
+                    <p>Cortes e gravações precisionados em materiais premium para detalhes únicos e acabamento impecável.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🪧 <span>Sinalética</span></h3>
+                    <p>Criação de sinalética corporativa com materiais duráveis e design funcional.</p>
+                </div>
+                <div class="service-card">
+                    <h3>☂️ <span>Toldos & Totens</span></h3>
+                    <p>Projeto e instalação de toldos e totens personalizados com acabamento premium.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Quem Somos</h2>
+                <p>Mais de 27 anos criando soluções de comunicação visual de excelência</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="color: var(--gray-light); opacity: 0.9;">
+                    Na Publisilva, ajudamos empresas a <strong>destacarem-se</strong> há mais de <strong>27 anos</strong>. Criamos <strong>reclamos luminosos</strong>, decoramos <strong>montras e viaturas</strong>, fazemos <strong>corte CNC e laser</strong>, <strong>sinalética</strong>, <strong>toldos</strong>, <strong>totens</strong> e <strong>outdoors</strong>.
+                </p>
+                <p style="color: var(--gray-light); opacity: 0.9; margin-top: 1rem;">
+                    Tudo <strong>fabricado internamente</strong> com equipa especializada e tecnologia de ponta. Do primeiro rascunho até a entrega final.
+                </p>
+                <p style="color: var(--gray-light); opacity: 0.9; margin-top: 1rem;">
+                    Nosso objetivo: <strong>aumentar a visibilidade da sua marca</strong> e <strong>atrair mais clientes</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entre em Contato</h2>
+                <p>Vamos conversar sobre a sua nova solução de comunicação visual</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5v12h16V8z"/></svg>
+                    <a href="mailto:contacto@publisilva.pt" class="contact-email">contacto@publisilva.pt</a>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.25-2.25a1 1 0 011.11-.21c.15.05.3.11.45.16a1 1 0 00.45-1.65l-2.25-2.25a15.05 15.05 0 00-6.59-6.59l-2.25 2.25a1 1 0 01-1.41 0l-2.25-2.25a1 1 0 00-1.41 0A15.05 15.05 0 006.62 10.79z"/></svg>
+                    <span>+351 917 334 595</span>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span>Taboeira - Aveiro, Portugal</span>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M19 3h-1V2h-2v1H8V2H6v1H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+                    <span>Zona Industrial de Taboeira, Aveiro</span>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M7 10v5h5v5l3.5-4L12 7v5h-5z"/></svg>
+                    <span>Seg-Sex: 9:00-12:30 / 13:30-18:00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Publisilva. Todos os direitos reservados.</p>
+        <p>Aveiro, Portugal</p>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from('.hero-content h1', {
+            opacity: 0,
+            y: 60,
+            duration: 1.2,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.hero-content p', {
+            opacity: 0,
+            y: 40,
+            duration: 1,
+            delay: 0.3,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.btn', {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.8,
+            delay: 0.5,
+            ease: 'back.out(1.7)'
+        });
+
+        gsap.from('.section', {
+            scrollTrigger: {
+                trigger: '.section',
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            y: 60,
+            duration: 1,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.section-title', {
+            scrollTrigger: {
+                trigger: '.section-title',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            y: 40,
+            duration: 1,
+            ease: 'power3.out'
+        });
+
+        gsap.utils.toArray('.service-card').forEach((card, index) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: 'power3.out',
+                delay: index * 0.15
+            });
+        });
+    </script>
+</body>
+</html>
