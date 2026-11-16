@@ -1,0 +1,140 @@
+/* Tailwind-like base styles for Publisilva */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
+
+:root {
+  --primary: #0a192f;
+  --secondary: #172a45;
+  --accent: #00d9ff;
+  --accent-dark: #00a3a3;
+  --light: #ffffff;
+  --dark: #0a192f;
+  --gray-light: #f8f9fa;
+  --gray-dark: #6c757d;
+  --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--light);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  overflow-x: hidden;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2.5rem, 8vw, 4rem); }
+h2 { font-size: clamp(2rem, 6vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--dark);
+  box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+}
+
+/* Section padding */
+.section {
+  padding: 6rem 2rem;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border-radius: 0;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 217, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.md\\:grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lg\\:grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .card {
+    padding: 2rem;
+  }
+  
+  .grid.md\\:grid-cols-2,
+  .grid.lg\\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
